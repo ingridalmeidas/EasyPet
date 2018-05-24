@@ -1,6 +1,7 @@
 package infra;
 
 import business.model.Usuario;
+import util.ArquivoNaoEncontrado;
 import business.control.*;
 
 import java.util.ArrayList;
@@ -9,8 +10,6 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
-
-
 
 public class Persistencia{
 	
