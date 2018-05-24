@@ -1,69 +1,38 @@
 package business.control;
 
-
 import business.model.Usuario;
 
 import java.util.ArrayList;
 
 import infra.Persistencia;
+import util.LoginInvalido;
+import util.SenhaInvalida;
+import util.ValidadorUsuario;
+import util.ArquivoNaoEncontrado;
 
 public class GerenciaUsuario {
-
-	private final static int MAX_LOGIN = 15,
-			 MAX_SENHA = 18,
-			 MIN_SENHA = 6,
-			 VAZIO = 0;
 	
 	private ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
 	
 	Persistencia p = new Persistencia();
 	
+	ValidadorUsuario validador = new ValidadorUsuario();
 	
-	public boolean validaLogin(Usuario usuario) throws EspacoVazio, CaracteresMaximos, TemNumero {
-		
-		if(usuario.getLogin().length() == VAZIO) {
-			
-			throw new EspacoVazio("Login não pode ser deixado em branco!");
-			
-		
-		}else if(usuario.getLogin().length() > MAX_LOGIN) {
-			throw new CaracteresMaximos("Login excedeu o número maximo (15) de caracteres!");
-		
-		}else if(usuario.getLogin().matches(".*\\d.*")) {
-			
-			throw new TemNumero("Login não pode conter números!");
-			
-		}else {
-			return true;
-		}
-		
+	
+	public boolean validaSenha(Usuario usuario) throws SenhaInvalida{
+		return validador.validaSenha(usuario);
 	}
 	
-	public boolean validaSenha(Usuario usuario) throws CaracteresMaximos, CaracteresMinimos, PossuiNumero, PossuiLetras{
-		
-		if(usuario.getSenha().length() > MAX_SENHA) {
-			throw new CaracteresMaximos("A senha excedeu o número máximo (18) de caractes!");
-		
-		}else if(usuario.getSenha().length() < MIN_SENHA) {
-			throw new CaracteresMinimos("A senha não atingiu a quantidade mínima (6) de caracteres!");
-		
-		}else if(!usuario.getSenha().matches(".*\\d.*\\d.*")){
-			throw new PossuiNumero("A senha deve possuir pelo menos 2 números!");
-		
-		}else if(!usuario.getSenha().matches("(.*)[a-z|A-Z](.*)")) {
-			throw new PossuiLetras("A senha deve possuir letras!");
-		
-		}
-		
-		return true;
+	public boolean validaLogin(Usuario usuario) throws LoginInvalido{
+		return validador.validaLogin(usuario);
 	}
 	
-	public void adicionaUsuario(Usuario usuario) {
+	public void adicionaUsuario(Usuario usuario){
 		
-		listaDeUsuarios.add(new Usuario(usuario.getLogin(), usuario.getSenha()));
+		listaDeUsuarios.add(new Usuario(usuario.getLogin(), usuario.getSenha(), usuario.getNome(), usuario.getIdade(),
+							usuario.getSexo(), usuario.getCidade(), usuario.getEstado(), usuario.getCaracteristicasAnimais()));
 		
 		System.out.printf("\nO usuario '%s' foi adicionado com sucesso \n", usuario.getLogin());
-		
 		
 	}
 	
@@ -72,10 +41,14 @@ public class GerenciaUsuario {
 		System.out.printf("\nTamanho da lista de usuarios: %d\n" , listaDeUsuarios.size());
 		
 		for (int i = 0; i < listaDeUsuarios.size(); i++) {
+			
 			Usuario u = (Usuario) listaDeUsuarios.get(i);
 			
-			System.out.printf("\nLogin do Usuario %d: %s", i+1, u.getLogin());
-			System.out.printf("\nSenha do Usuario %d: %s", i+1, u.getSenha());
+			u.setId(i);
+			
+			System.out.printf("\nUsuario %d: ", u.getId());
+			System.out.println(u.toString());
+			
 		}
 	}
 	

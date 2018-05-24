@@ -5,6 +5,10 @@ import java.util.Scanner;
 import business.control.*;
 
 import business.model.Usuario;
+import util.LoginInvalido;
+import util.SenhaInvalida;
+import util.ArquivoNaoEncontrado;
+
 
 
 public class Interface {
@@ -12,8 +16,6 @@ public class Interface {
 	
 	public static void main(String args[]) {
 		
-		boolean loginValido = false;
-		boolean senhaValida = false;
 		boolean continua = true;
 		
 		int decisao = 1; //Variavel que auxiliara quando o programa tiver que ser terminado
@@ -36,8 +38,8 @@ public class Interface {
 		
 		while(continua) {
 			
-			loginValido = false;
-			senhaValida = false;
+			boolean loginValido = false;
+			boolean senhaValida = false;
 			
 			System.out.println("\n\nO que voce deseja fazer? 1-Adicionar usuario 2-Excluir usuario 3-Fechar o programa");
 			
@@ -46,9 +48,7 @@ public class Interface {
 			
 			if (decisao == 1) {
 				
-				//Enquanto não for introduzido um login valido, o programa continua
-				// solicitando a inserção de um login
-				while (!loginValido) {
+				while(!loginValido) {
 					
 					System.out.println("\nDigite seu Login: ");
 					
@@ -56,52 +56,45 @@ public class Interface {
 					
 					try {
 						loginValido = gerencia.validaLogin(usuario);
-					}
-					catch(EspacoVazio e) {
+					}catch(LoginInvalido e) {
 						System.out.println("\nLogin invalido! " + e.getMessage() + " Digite novamente!");
 					}
-					catch(CaracteresMaximos e) {
-						System.out.println("\nLogin invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(TemNumero e) {
-						System.out.println("\nLogin invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(Exception e) {
-						System.out.println("\nOcorreu um comportamento inesperado! Digite o login novamente!");
-					}
-					
 				}
 				
-				//Enquanto não for introduzido uma senha valida, o programa continua
-				// solicitando a inserção de uma senha
 				while(!senhaValida) {
-					
 					System.out.println("\nDigite sua senha: ");
 					
 					usuario.setSenha(s.nextLine());
 					
 					try {
 						senhaValida = gerencia.validaSenha(usuario);
-					}
-					catch(CaracteresMaximos e) {
+					}catch(SenhaInvalida e) {
 						System.out.println("\nSenha invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(CaracteresMinimos e) {
-						System.out.println("\nSenha invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(PossuiNumero e) {
-						System.out.println("\nSenha invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(PossuiLetras e) {
-						System.out.println("\nSenha invalida! " + e.getMessage() + " Digite novamente!");
-					}
-					catch(Exception e) {
-						System.out.println("\nOcorreu um comportamento inesperado! Digite a senha novamente!");
 					}
 				}
+					
+				System.out.println("\nDigite seu nome:");
+				usuario.setNome(s.nextLine());
+					
+				System.out.println("\nDigite sua idade:");
+				usuario.setIdade(s.nextInt());
+				s.nextLine();
+					
+				System.out.println("\nDigite seu sexo: F - Feminino, M - Masculino");
+				usuario.setSexo(s.nextLine().charAt(0));
+					
+				System.out.println("\nDigite sua cidade:");
+				usuario.setCidade(s.nextLine());
+					
+				System.out.println("\nDigite seu Estado:");
+				usuario.setEstado(s.nextLine());
 				
-				//Quando forem introduzidos login e senha válidos, o usuário é cadastrado
+				System.out.println("\nDigite palavras chaves separadas por espaço com características de um animal que você deseja adotar:");
+				usuario.setCaracteristicasAnimais(s.nextLine());
+				
 				gerencia.adicionaUsuario(usuario);
+				
+				
 				
 			}
 			
