@@ -4,7 +4,7 @@ import business.model.Usuario;
 
 import java.util.ArrayList;
 
-import infra.Persistencia;
+import infra.UsuarioDAOImpl;
 import util.LoginInvalido;
 import util.SenhaInvalida;
 import util.ValidadorUsuario;
@@ -14,7 +14,7 @@ public class GerenciaUsuario {
 	
 	private ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
 	
-	Persistencia p = new Persistencia();
+	UsuarioDAOImpl p = new UsuarioDAOImpl();
 	
 	ValidadorUsuario validador = new ValidadorUsuario();
 	
