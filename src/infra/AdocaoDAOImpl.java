@@ -1,8 +1,6 @@
 package infra;
-
-import business.model.Usuario;
+import business.model.Adocao;
 import util.ArquivoNaoEncontrado;
-import business.control.*;
 
 import java.util.ArrayList;
 import java.io.File;
@@ -11,47 +9,46 @@ import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 
-public class Persistencia{
-	
-	public void salvaLista(ArrayList<Usuario> lista) throws ArquivoNaoEncontrado{
+public class AdocaoDAOImpl implements AdocaoDAO{
 		
+	public void salvaLista(ArrayList<Adocao> lista) throws ArquivoNaoEncontrado{
+			
 		try {
 
-			File file = new File("Usuarios.dat");
-			
+			File file = new File("Adocoes.dat");
+				
             FileOutputStream saveFile = new FileOutputStream(file);
 
             ObjectOutputStream stream = new ObjectOutputStream(saveFile);
 
-            
-             // salva o objeto
             stream.writeObject(lista);
 
             stream.close();
 
-          } catch (Exception e) {
+         } catch (Exception e) {
 
         	  throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
 
           }	
 	}
-	
-	public ArrayList<Usuario> carregaLista() throws ArquivoNaoEncontrado{
 		
+	public ArrayList<Adocao> carregaLista() throws ArquivoNaoEncontrado{
+			
 		try {
-            File file = new File("Usuarios.dat");
-            
+            File file = new File("Adocoes.dat");
+	            
             ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
-            
-            ArrayList<Usuario> listaDeUsuarios = (ArrayList<Usuario>) input.readObject();
-            
+	            
+            ArrayList<Adocao> listaDeAnimais = (ArrayList<Adocao>) input.readObject();
+	            
             input.close();
             
-            return listaDeUsuarios;
+            return listaDeAnimais;
 		}
 		catch(Exception e){
             throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
 		}
-		
+	
 	}
+
 }
