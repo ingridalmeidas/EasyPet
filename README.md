@@ -4,6 +4,11 @@ EasyPet é um aplicativo para adoção de animais, seu objetivo é que usuários
 
 Obs: Para acessar o painel administrativo é necessário utilizar o login "admin" e a senha "admin".
 
+# Grupo
+Ingrid Luana - 11504745
+Luiz Fernando - 11502754
+Valfredo Santos - 11504304
+
 # Padrões de Projeto
 
 # DAO
