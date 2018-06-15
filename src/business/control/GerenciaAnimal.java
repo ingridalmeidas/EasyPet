@@ -25,7 +25,7 @@ public class GerenciaAnimal {
 		
 		listaDeAnimais.add(new Animal(animal.getNome(), animal.getEspecie(), animal.getRaca(),
 				animal.getIdade(), animal.getSexo(), animal.getCastrado(), animal.getVacinado(),
-				animal.getDescricao(), animal.getDoador()));
+				animal.getDescricao(), animal.getIDdoador()));
 		
 		System.out.printf("\nO animal '%s' foi adicionado com sucesso \n", animal.getNome());
 		

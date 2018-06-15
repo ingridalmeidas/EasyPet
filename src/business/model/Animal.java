@@ -14,11 +14,11 @@ public class Animal implements Serializable {
 	private boolean vacinado;
 	private String descricao; //Palavra chave com características de animais
 											//que deseja adotar
-	private Usuario doador = new Usuario();
+	private int IDdoador; //ID do usuário que disponibilizou o animal para adoção
 	
 	
 	public Animal(String nome, String especie, String raca, int idade, char sexo,
-			boolean castrado, boolean vacinado, String descricao, Usuario doador){
+			boolean castrado, boolean vacinado, String descricao, int IDdoador){
 
 		this.nome = nome;
 		this.especie = especie;
@@ -28,11 +28,11 @@ public class Animal implements Serializable {
 		this.castrado = castrado;
 		this.vacinado = vacinado;
 		this.descricao = descricao;
-		this.doador = doador;
+		this.IDdoador = IDdoador;
 
 	}
 
-	public Animal(Usuario doador) {
+	public Animal(int IDdoador) {
 	
 		this.id = -1;
 		this.nome = "";
@@ -43,7 +43,7 @@ public class Animal implements Serializable {
 		this.castrado = false;
 		this.vacinado = false;
 		this.descricao = "";
-		this.doador = doador;
+		this.IDdoador = IDdoador;
 
 	}
 	
@@ -119,17 +119,17 @@ public class Animal implements Serializable {
 		this.descricao = descricao;
 	}
 	
-	public Usuario getDoador() {
-		return doador;
+	public int getIDdoador() {
+		return IDdoador;
 	}
 
-	public void setDoador(Usuario doador) {
-		this.doador = doador;
+	public void setIDdoador(int IDdoador) {
+		this.IDdoador = IDdoador;
 	}
 
 	
 	public String toString() {
-		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRa�a: " + raca + 
+		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRa�a: " + raca + 
 				"\nIdade: " + idade + "\nSexo: " + sexo + "\nDescrição: "+ descricao;
 		
 		if (castrado){

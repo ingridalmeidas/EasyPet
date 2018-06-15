@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class Adocao {
 	private int id;
-	private Usuario doador = new Usuario();
-	private Usuario adotante = new Usuario();
-	private Animal animal = new Animal(doador);
+	private int IDdoador;
+	private int IDadotante;
+	private int IDanimal;
 	
-	public Adocao(Usuario doador, Usuario adotante, Animal animal) {
-		this.doador = doador;
-		this.adotante = adotante;
-		this.animal = animal;
+	public Adocao(int IDdoador, int IDadotante, int IDanimal) {
+		this.IDdoador = IDdoador;
+		this.IDadotante = IDadotante;
+		this.IDanimal = IDanimal;
 	}
 	
 	public Adocao() {
-		this.doador = null;
-		this.adotante = null;
-		this.animal = null;
+		this.IDdoador = -1;
+		this.IDadotante = -1;
+		this.IDanimal = -1;
 	}
 	
 	public int getId() {
@@ -28,27 +28,27 @@ public class Adocao {
 		this.id = id;
 	}
 	
-	public Usuario getDoador() {
-		return doador;
+	public int getIDdoador() {
+		return IDdoador;
 	}
 
-	public void setDoador(Usuario doador) {
-		this.doador = doador;
+	public void setIdoador(int IDdoador) {
+		this.IDdoador = IDdoador;
 	}
 
-	public Usuario getAdotante() {
-		return adotante;
+	public int getIDadotante() {
+		return IDadotante;
 	}
 
-	public void setAdotante(Usuario adotante) {
-		this.adotante = adotante;
+	public void setIDadotante(int IDadotante) {
+		this.IDadotante = IDadotante;
 	}
 	
-	public Animal getAnimal() {
-		return animal;
+	public int getIDanimal() {
+		return IDanimal;
 	}
 
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
+	public void setIDAnimal(int animal) {
+		this.IDanimal = IDanimal;
 	}
 }
