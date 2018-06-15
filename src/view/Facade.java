@@ -1,10 +1,16 @@
+package view;
+
 import business.control.*;
+import business.model.*;
 import java.util.Scanner;
+import util.LoginInvalido;
+import util.SenhaInvalida;
+import util.ArquivoNaoEncontrado;
 
 public class Facade {
   private GerenciaUsuario gerenteUsuario;
   private GerenciaAnimal gerenteAnimal;
-  private GerencialAdocao gerenteAdocao;
+  private GerenciaAdocao gerenteAdocao;
    
   public void inicializarSistema() {
     gerenteUsuario = GerenciaUsuario.getInstancia();
@@ -120,6 +126,7 @@ public class Facade {
   }
   
   public void removeUsuario(){
+	Scanner s = new Scanner(System.in);
     String loginRemovido = "";
     
     System.out.println("\nDigite o login do usuario que voce deseja excluir: ");

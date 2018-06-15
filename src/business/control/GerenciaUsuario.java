@@ -21,7 +21,7 @@ public class GerenciaUsuario {
 		
 	public static GerenciaUsuario getInstancia() {
 		if(instancia == null)
-			instancia = newGerenciaUsuario();
+			instancia = new GerenciaUsuario();
 		return instancia;
 	}
 	

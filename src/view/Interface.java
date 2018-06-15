@@ -2,14 +2,9 @@ package view;
 
 import java.util.Scanner;
 
-import Facade;
+import view.Facade;
 
 import business.model.Usuario;
-import util.LoginInvalido;
-import util.SenhaInvalida;
-import util.ArquivoNaoEncontrado;
-
-
 
 public class Interface {
 

@@ -5,7 +5,6 @@ import business.model.Adocao;
 import java.util.ArrayList;
 
 import infra.AdocaoDAOImpl;
-import util.ValidadorUsuario;
 import util.ArquivoNaoEncontrado;
 
 public class GerenciaAdocao {
@@ -13,13 +12,12 @@ public class GerenciaAdocao {
 	public static GerenciaAdocao instancia;
 	private ArrayList<Adocao> listaDeAdocoes = new ArrayList<Adocao>();
 	private AdocaoDAOImpl p = new AdocaoDAOImpl();
-	private ValidadorUsuario validador = new ValidadorUsuario();
 	
 	protected GerenciaAdocao() {}
 		
 	public static GerenciaAdocao getInstancia() {
 		if(instancia == null)
-			instancia = newGerenciaAdocao();
+			instancia = new GerenciaAdocao();
 		return instancia;
 	}
 	

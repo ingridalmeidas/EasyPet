@@ -5,9 +5,6 @@ import business.model.Animal;
 import java.util.ArrayList;
 
 import infra.AnimalDAOImpl;
-import util.LoginInvalido;
-import util.SenhaInvalida;
-import util.ValidadorUsuario;
 import util.ArquivoNaoEncontrado;
 
 public class GerenciaAnimal {
@@ -20,13 +17,13 @@ public class GerenciaAnimal {
 		
 	public static GerenciaAnimal getInstancia() {
 		if(instancia == null)
-			instancia = newGerenciaAnimal();
+			instancia = new GerenciaAnimal();
 		return instancia;
 	}
 	
 	public void adicionaAnimal(Animal animal){
 		
-		listaDeAnimais.add(new Animal(animal.getNome(), animal.getEspecie(), animal.getRaça(),
+		listaDeAnimais.add(new Animal(animal.getNome(), animal.getEspecie(), animal.getRaca(),
 				animal.getIdade(), animal.getSexo(), animal.getCastrado(), animal.getVacinado(),
 				animal.getDescricao(), animal.getDoador()));
 		

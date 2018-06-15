@@ -7,7 +7,7 @@ public class Animal implements Serializable {
 	private int id; //Gerado pelo sistema
 	private String nome;
 	private String especie;
-	private String raça;
+	private String raca;
 	private int idade;
 	private char sexo;
 	private boolean castrado;
@@ -17,12 +17,12 @@ public class Animal implements Serializable {
 	private Usuario doador = new Usuario();
 	
 	
-	public Animal(String nome, String especie, String raça, int idade, char sexo,
+	public Animal(String nome, String especie, String raca, int idade, char sexo,
 			boolean castrado, boolean vacinado, String descricao, Usuario doador){
 
 		this.nome = nome;
 		this.especie = especie;
-		this.raça = raça;
+		this.raca = raca;
 		this.idade = idade;
 		this.sexo = sexo;
 		this.castrado = castrado;
@@ -37,7 +37,7 @@ public class Animal implements Serializable {
 		this.id = -1;
 		this.nome = "";
 		this.especie = "";
-		this.raça = "";
+		this.raca = "";
 		this.idade = -1;
 		this.sexo = '0';
 		this.castrado = false;
@@ -71,12 +71,12 @@ public class Animal implements Serializable {
 		this.especie = especie;
 	}
 	
-	public String getRaça() {
-		return raça;
+	public String getRaca() {
+		return raca;
 	}
 
-	public void setRaça(String raça) {
-		this.raça = raça;
+	public void setRaca(String raca) {
+		this.raca = raca;
 	}
 	
 	public int getIdade() {
@@ -129,7 +129,7 @@ public class Animal implements Serializable {
 
 	
 	public String toString() {
-		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRaça: " + raça + 
+		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRa�a: " + raca + 
 				"\nIdade: " + idade + "\nSexo: " + sexo + "\nDescrição: "+ descricao;
 		
 		if (castrado){
