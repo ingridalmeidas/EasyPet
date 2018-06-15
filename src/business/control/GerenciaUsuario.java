@@ -12,12 +12,18 @@ import util.ArquivoNaoEncontrado;
 
 public class GerenciaUsuario {
 	
+	public static GerenciaUsuario instancia;
 	private ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
+	private UsuarioDAOImpl p = new UsuarioDAOImpl();
+	private ValidadorUsuario validador = new ValidadorUsuario();
 	
-	UsuarioDAOImpl p = new UsuarioDAOImpl();
-	
-	ValidadorUsuario validador = new ValidadorUsuario();
-	
+	protected GerenciaUsuario() {}
+		
+	public static GerenciaUsuario getInstancia() {
+		if(instancia == null)
+			instancia = newGerenciaUsuario();
+		return instancia;
+	}
 	
 	public boolean validaSenha(Usuario usuario) throws SenhaInvalida{
 		return validador.validaSenha(usuario);

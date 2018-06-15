@@ -10,12 +10,18 @@ import util.ArquivoNaoEncontrado;
 
 public class GerenciaAdocao {
 	
+	public static GerenciaAdocao instancia;
 	private ArrayList<Adocao> listaDeAdocoes = new ArrayList<Adocao>();
+	private AdocaoDAOImpl p = new AdocaoDAOImpl();
+	private ValidadorUsuario validador = new ValidadorUsuario();
 	
-	AdocaoDAOImpl p = new AdocaoDAOImpl();
-	
-	ValidadorUsuario validador = new ValidadorUsuario();
-	
+	protected GerenciaAdocao() {}
+		
+	public static GerenciaAdocao getInstancia() {
+		if(instancia == null)
+			instancia = newGerenciaAdocao();
+		return instancia;
+	}
 	
 	public void listaDeAdocoes() {
 		

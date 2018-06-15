@@ -12,9 +12,17 @@ import util.ArquivoNaoEncontrado;
 
 public class GerenciaAnimal {
 	
+	public static GerenciaAnimal instancia;
 	private ArrayList<Animal> listaDeAnimais = new ArrayList<Animal>();
+	private AnimalDAOImpl p = new AnimalDAOImpl();
 	
-	AnimalDAOImpl p = new AnimalDAOImpl();
+	protected GerenciaAnimal() {}
+		
+	public static GerenciaAnimal getInstancia() {
+		if(instancia == null)
+			instancia = newGerenciaAnimal();
+		return instancia;
+	}
 	
 	public void adicionaAnimal(Animal animal){
 		
