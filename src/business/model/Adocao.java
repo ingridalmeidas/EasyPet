@@ -3,6 +3,7 @@ package business.model;
 import java.io.Serializable;
 
 public class Adocao {
+	private int id;
 	private Usuario doador = new Usuario();
 	private Usuario adotante = new Usuario();
 	private Animal animal = new Animal(doador);
@@ -17,6 +18,14 @@ public class Adocao {
 		this.doador = null;
 		this.adotante = null;
 		this.animal = null;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public Usuario getDoador() {
