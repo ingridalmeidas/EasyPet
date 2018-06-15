@@ -5,19 +5,24 @@ import business.model.Animal;
 import java.util.ArrayList;
 
 import infra.AnimalDAOImpl;
+import util.LoginInvalido;
+import util.SenhaInvalida;
+import util.ValidadorUsuario;
 import util.ArquivoNaoEncontrado;
 
 public class GerenciaAnimal {
+	
 	private ArrayList<Animal> listaDeAnimais = new ArrayList<Animal>();
 	
 	AnimalDAOImpl p = new AnimalDAOImpl();
 	
 	public void adicionaAnimal(Animal animal){
 		
-		/*listaDeUsuarios.add(new Usuario(usuario.getLogin(), usuario.getSenha(), usuario.getNome(), usuario.getIdade(),
-							usuario.getSexo(), usuario.getCidade(), usuario.getEstado(), usuario.getCaracteristicasAnimais()));
-		*/
-		//System.out.printf("\nO animal '%s' foi adicionado com sucesso \n", animal.getLogin());
+		listaDeAnimais.add(new Animal(animal.getNome(), animal.getEspecie(), animal.getRaça(),
+				animal.getIdade(), animal.getSexo(), animal.getCastrado(), animal.getVacinado(),
+				animal.getDescricao(), animal.getDoador()));
+		
+		System.out.printf("\nO animal '%s' foi adicionado com sucesso \n", animal.getNome());
 		
 	}
 	
