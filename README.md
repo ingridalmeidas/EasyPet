@@ -2,6 +2,8 @@
 
 EasyPet é um aplicativo para adoção de animais, seu objetivo é que usuários possam procurar animais para adotar com base em suas caraterísticas ou cadastrar animais para que outros possam adotar. Essa é uma versão inicial desenvolvida como projeto para a disciplina de Métodos de Projeto de Software.
 
+Obs: Para acessar o painel administrativo é necessário utilizar o login "admin" e a senha "admin".
+
 # Padrões de Projeto
 
 # DAO
@@ -18,8 +20,8 @@ O padrão Facade foi aplicado no package view para servir como uma interface que
 
 # Template Method
 
-O template method foi utilizado para tratar os dois diferentes tipos de relatórios gerados pelos usuários administradores.
+O template method foi utilizado para tratar os dois diferentes tipos de relatórios gerados pelos administradores, um relatório em XML e outro em PDF. O programa simula a chamada dos dois métodos dependendo da opção escolhida.
 
 # Adapter
 
-O adapter foi utilizado como um intermediário entre a aplicação e a API para validação de logins do Facebook, de forma que caso a API seja atualizado e alterada, basta que uma adaptação seja feita na classe adapter para que o sistema volte a funcionar normalmente.
+O adapter foi utilizado como um intermediário entre a aplicação e a API para validação de logins do Facebook e o Gmail, de forma que caso a API seja atualizada e alterada, basta que uma adaptação seja feita na classe adapter para que o sistema volte a funcionar normalmente.
