@@ -13,15 +13,15 @@ public class ValidadorUsuario {
 		
 		if(usuario.getLogin().length() == VAZIO) {
 			
-			throw new LoginInvalido("Login não pode ser deixado em branco!");
+			throw new LoginInvalido("Login nao pode ser deixado em branco!");
 			
 		
 		}else if(usuario.getLogin().length() > MAX_LOGIN) {
-			throw new LoginInvalido("Login excedeu o número maximo (15) de caracteres!");
+			throw new LoginInvalido("Login excedeu o numero maximo (15) de caracteres!");
 		
 		}else if(usuario.getLogin().matches(".*\\d.*")) {
 			
-			throw new LoginInvalido("Login não pode conter números!");
+			throw new LoginInvalido("Login nao pode conter numeros!");
 			
 		}else {
 			return true;
@@ -32,13 +32,13 @@ public class ValidadorUsuario {
 	public boolean validaSenha(Usuario usuario) throws SenhaInvalida{
 		
 		if(usuario.getSenha().length() > MAX_SENHA) {
-			throw new SenhaInvalida("A senha excedeu o número máximo (18) de caractes!");
+			throw new SenhaInvalida("A senha excedeu o numero maximo (18) de caractes!");
 		
 		}else if(usuario.getSenha().length() < MIN_SENHA) {
-			throw new SenhaInvalida("A senha não atingiu a quantidade mínima (6) de caracteres!");
+			throw new SenhaInvalida("A senha nao atingiu a quantidade minima (6) de caracteres!");
 		
 		}else if(!usuario.getSenha().matches(".*\\d.*\\d.*")){
-			throw new SenhaInvalida("A senha deve possuir pelo menos 2 números!");
+			throw new SenhaInvalida("A senha deve possuir pelo menos 2 numeros!");
 		
 		}else if(!usuario.getSenha().matches("(.*)[a-z|A-Z](.*)")) {
 			throw new SenhaInvalida("A senha deve possuir letras!");

@@ -126,7 +126,7 @@ public class Usuario implements Serializable  {
 	public String toString() {
 		return "\nID: " + id + "\nLogin: " + login +"\nSenha: " + senha + "\nNome: " + nome + 
 				"\nIdade: " + idade + "\nSexo: " + sexo + "\nNota: " + nota + "\nCidade: "
-				+ cidade + "\nEstado: " + estado + "\nCaracterísticas de um animal que deseja adotar: "+ caracteristicasAnimais;
+				+ cidade + "\nEstado: " + estado + "\nCaracteristicas de um animal que deseja adotar: "+ caracteristicasAnimais;
 	}
 	
 	

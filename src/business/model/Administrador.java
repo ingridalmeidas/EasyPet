@@ -11,20 +11,20 @@ public class Administrador {
 	private String senha;
 
 	public Administrador() {
-		this.id = -1;
-		this.login = "";
-		this.senha = "";
+		this.id = 0;
+		this.login = "admin";
+		this.senha = "admin";
 	}
 
 	public Relatorio gerarRelatorio(String tipo) {
 		
-		if (tipo == "XML") {
+		if (tipo == "PDF") {
 			
 			GeradorRelatorioPDF geradorDeRelatorio = new GeradorRelatorioPDF();
 			geradorDeRelatorio.gerarRelatorio();
 			
 		}else {
-			//gera PDF
+
 			GeradorRelatorioXML geradorDeRelatorio = new GeradorRelatorioXML();
 			geradorDeRelatorio.gerarRelatorio();
 		}
@@ -39,6 +39,14 @@ public class Administrador {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getLogin() {
+		return login;
 	}
 
 	public void setSenha(String senha) {

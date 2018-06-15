@@ -5,7 +5,7 @@ import infra.API_Facebook;
 public class FacebookAdapter extends API_Facebook implements ValidaLogin{
 	
 	public void validaCadastro(String login, String senha) {
-		facebook_ValidaCadastro(login);
+		facebook_ValidaCadastro(login, senha);
 	}
 	
 	public void validaLogin(String login, String senha) {

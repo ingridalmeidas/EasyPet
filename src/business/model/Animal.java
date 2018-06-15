@@ -129,17 +129,23 @@ public class Animal implements Serializable {
 
 	
 	public String toString() {
-		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRa�a: " + raca + 
-				"\nIdade: " + idade + "\nSexo: " + sexo + "\nDescrição: "+ descricao;
+		String retorno = "\nID: " + id +  "\nNome: " + nome + "\nEspecie: " + especie + "\nRaca: " + raca + 
+				"\nIdade: " + idade + "\nSexo: " + sexo + "\nDescricao: "+ descricao;
 		
 		if (castrado){
 			
 			retorno += "\nCastrado: Sim";
 			
 		}
+		else {
+			retorno += "\nCastrado: Nao";
+		}
 		
 		if (vacinado) {
 			retorno += "\nVacinado: Sim";
+		}
+		else {
+			retorno += "\nVacinado: Nao";
 		}
 		
 		return retorno;

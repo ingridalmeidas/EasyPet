@@ -93,4 +93,15 @@ public class GerenciaUsuario {
 		}	
 	
 	}
+	
+	public Usuario buscaLogin(String login) {
+		for (int i = 0; i < listaDeUsuarios.size(); i++) {
+			Usuario u = (Usuario) listaDeUsuarios.get(i);					
+			if (login.equals(u.getLogin())) {
+				return u;
+			}
+		}
+		
+		return null;
+	}
 }

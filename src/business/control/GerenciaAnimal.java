@@ -48,14 +48,14 @@ public class GerenciaAnimal {
 	}
 	
 	
-	public boolean removeAnimal(String id) {
+	public boolean removeAnimal(String nome) {
 			
 		for (int i = 0; i < listaDeAnimais.size(); i++) {
 				
 			Animal a = (Animal) listaDeAnimais.get(i);
 				
 				
-			if (id.equals(a.getId())) {
+			if (nome.equals(a.getNome())) {
 				return listaDeAnimais.remove(a);
 			}
 		}

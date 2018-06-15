@@ -10,7 +10,7 @@ public abstract class GeradorRelatorioTemplate {
 		
 		String tipo = tipoRelatorio();
 		
-		System.out.println("Gerando Relatório " + tipo);
+		System.out.println("Gerando Relatorio " + tipo);
 		
 		return null;
 	}

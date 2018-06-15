@@ -2,7 +2,7 @@ package infra;
 
 public class API_Facebook {
 
-	public void facebook_ValidaCadastro(String login) {
+	public void facebook_ValidaCadastro(String login, String senha) {
 		System.out.println("Cadastrando pelo Facebook");
 	}
 	

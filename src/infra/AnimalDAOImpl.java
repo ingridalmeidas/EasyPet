@@ -27,7 +27,7 @@ public class AnimalDAOImpl implements AnimalDAO{
 
          } catch (Exception e) {
 
-        	  throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
+        	  throw new ArquivoNaoEncontrado("Arquivo nao encontrado. Um novo arquivo sera inicializado");
 
           }	
 	}
@@ -46,7 +46,7 @@ public class AnimalDAOImpl implements AnimalDAO{
             return listaDeAnimais;
 		}
 		catch(Exception e){
-            throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
+            throw new ArquivoNaoEncontrado("Arquivo nao encontrado. Um novo arquivo sera inicializado");
 		}
 	
 	}

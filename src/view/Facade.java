@@ -1,16 +1,15 @@
 package view;
 
 import business.control.*;
-import business.model.*;
-import java.util.Scanner;
-import util.LoginInvalido;
-import util.SenhaInvalida;
+import business.model.Usuario;
+import view.Menu;
 import util.ArquivoNaoEncontrado;
 
 public class Facade {
   private GerenciaUsuario gerenteUsuario;
   private GerenciaAnimal gerenteAnimal;
   private GerenciaAdocao gerenteAdocao;
+  private Menu menu;
    
   public void inicializarSistema() {
     gerenteUsuario = GerenciaUsuario.getInstancia();
@@ -33,10 +32,12 @@ public class Facade {
   	}catch(ArquivoNaoEncontrado e) {
    		System.out.println("\n" + e.getMessage());
    	}
+    
+    menu = new Menu();
   }
     
   public void finalizarSistema() {
-    System.out.println("\nAté mais!");
+    System.out.println("\nAte mais!");
     try {
       gerenteUsuario.salvaListaEmArquivo();
     }catch(ArquivoNaoEncontrado e) {
@@ -57,7 +58,7 @@ public class Facade {
   }
     
   public void listaDeUsuarios() {
-    System.out.println("\nLista de usuários em arquivo: ");
+    System.out.println("\nLista de usuarios em arquivo: ");
     gerenteUsuario.listaDeUsuarios();
   }
   
@@ -71,73 +72,30 @@ public class Facade {
     gerenteAdocao.listaDeAdocoes();
   }
   
-  public void cadastrarUsuario() {
-    Scanner s = new Scanner(System.in);
-    Usuario usuario = new Usuario();
-    
-    boolean loginValido = false;
-	  boolean senhaValida = false; 
-      
-    while(!loginValido) {
-        
-      System.out.println("\nDigite seu Login: ");
-       
-      usuario.setLogin(s.nextLine());
-        
-      try {
-        loginValido = gerenteUsuario.validaLogin(usuario);
-      }catch(LoginInvalido e) {
-        System.out.println("\nLogin invalido! " + e.getMessage() + " Digite novamente!");
-      }
-    }
-      
-    while(!senhaValida) {
-      System.out.println("\nDigite sua senha: ");
-      
-      usuario.setSenha(s.nextLine());
-      
-      try {
-        senhaValida = gerenteUsuario.validaSenha(usuario);
-      }catch(SenhaInvalida e) {
-        System.out.println("\nSenha invalida! " + e.getMessage() + " Digite novamente!");
-      }
-    }
-        
-    System.out.println("\nDigite seu nome:");
-    usuario.setNome(s.nextLine());
-        
-    System.out.println("\nDigite sua idade:");
-    usuario.setIdade(s.nextInt());
-    s.nextLine();
-        
-    System.out.println("\nDigite seu sexo: F - Feminino, M - Masculino");
-    usuario.setSexo(s.nextLine().charAt(0));
-       
-    System.out.println("\nDigite sua cidade:");
-    usuario.setCidade(s.nextLine());
-        
-    System.out.println("\nDigite seu Estado:");
-    usuario.setEstado(s.nextLine());
-      
-    System.out.println("\nDigite palavras chaves separadas por espaço com características de um animal que você deseja adotar:");
-    usuario.setCaracteristicasAnimais(s.nextLine());
-      
-    gerenteUsuario.adicionaUsuario(usuario);
-  }
-  
-  public void removeUsuario(){
-	Scanner s = new Scanner(System.in);
-    String loginRemovido = "";
-    
-    System.out.println("\nDigite o login do usuario que voce deseja excluir: ");
-    loginRemovido = s.nextLine();
-    
-    if (gerenteUsuario.removeUsuario(loginRemovido)) {
-      System.out.println("\nUsuario removido: " + loginRemovido);
-    }
-    else{
-      System.out.println("\nUsuario nao foi removido");
-    }
+  public void telaInicial() {
+	while(true) {
+		int comando = menu.telaInicial();
+		
+		if(comando == 1)
+			menu.login(gerenteUsuario);
+		else if(comando == 2) 
+			menu.loginFacebook();
+		else if(comando == 3)
+			menu.loginGmail();
+		else if(comando == 4)
+			menu.cadastrarUsuario(gerenteUsuario);
+		else if(comando == 5)
+			menu.cadastrarFacebook();
+		else if(comando == 6)
+			menu.cadastrarGmail();
+		else if(comando == 7)
+			menu.cadastrarAnimal(gerenteAnimal);
+		else if(comando == 8)
+			menu.telaAdministrativa(gerenteUsuario, gerenteAnimal);
+		else if(comando == 9)
+			break;
+	}
+	
   }
   
 }

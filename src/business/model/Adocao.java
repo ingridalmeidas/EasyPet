@@ -48,7 +48,7 @@ public class Adocao {
 		return IDanimal;
 	}
 
-	public void setIDAnimal(int animal) {
+	public void setIDAnimal(int IDanimal) {
 		this.IDanimal = IDanimal;
 	}
 }

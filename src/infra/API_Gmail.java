@@ -2,7 +2,7 @@ package infra;
 
 public class API_Gmail {
 
-	public void gmail_ValidaCadastro() {
+	public void gmail_ValidaCadastro(String login, String senha) {
 		System.out.println("Cadastrando pelo Gmail");
 	}
 	

@@ -27,7 +27,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
          } catch (Exception e) {
 
-        	  throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
+        	  throw new ArquivoNaoEncontrado("Arquivo nao encontrado. Um novo arquivo sera inicializado");
 
           }	
 	}
@@ -46,7 +46,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             return listaDeUsuarios;
 		}
 		catch(Exception e){
-            throw new ArquivoNaoEncontrado("Arquivo não encontrado. Um novo arquivo será inicializado");
+            throw new ArquivoNaoEncontrado("Arquivo nao encontrado. Um novo arquivo sera inicializado");
 		}
 	
 	}
