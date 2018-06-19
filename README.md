@@ -40,3 +40,9 @@ O padrão memento foi utilizado na classe GerenciaUsuario, foi criada uma classe
 # Command
 
 O padrão command foi utilizado para implementar os diferentes tipos de notificações existentes na aplicação (por SMS ou Email), que são utilizados para a GerenciaAnimal enviar mensagens para o doador de um animal que alguém teve interesse em seu animal.
+
+# Padrões Extra
+
+# Iterator
+
+O padrão iterator foi aplicado para as três classes de gerência (GerenciaUsuario, GerenciaAnimal, GerenciaAdocao), de forma que uma interface Iterador foi criada e três classes de iteradores especificas para cada uma das gerências, com isso as formas de acesso a lista de entidades da gerencia foi substituida para realizar essa atividade com o uso do iterador. Com esse padrão essa forma de acesso fica mais organizada e permite que caso a forma como as entidades são armazenadas (neste caso um ArrayList) seja substituido, basta atualizar a forma como o iterador funciona para que o resto do programa continue funcionando.
