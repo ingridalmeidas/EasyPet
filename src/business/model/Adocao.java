@@ -2,7 +2,7 @@ package business.model;
 
 import java.io.Serializable;
 
-public class Adocao {
+public class Adocao implements Serializable {
 	private int id;
 	private int IDdoador;
 	private int IDadotante;

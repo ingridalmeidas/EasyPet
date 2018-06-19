@@ -1,10 +1,6 @@
 package view;
 
-import java.util.Scanner;
-
 import view.Facade;
-
-import business.model.Usuario;
 
 public class Interface {
 	

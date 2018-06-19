@@ -1,7 +1,6 @@
 package view;
 
 import business.control.*;
-import business.model.Usuario;
 import view.Menu;
 import util.ArquivoNaoEncontrado;
 
