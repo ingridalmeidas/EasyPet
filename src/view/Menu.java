@@ -304,7 +304,7 @@ public class Menu {
 				while(true) {
 					if(password.equals("admin")) {
 						adm = new AdministradorProxy(username, password);
-						System.out.println("\nAcesso realizado com sucesso. Seja bem vindo " + adm.getLogin());
+						System.out.println("\nAcesso realizado com sucesso. Seja bem vindo " + adm.getUsuario());
 						operacoesADM(adm, gerenteUsuario, gerenteAnimal);
 						return;
 					}

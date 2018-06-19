@@ -10,14 +10,14 @@ public class AdministradorProxy extends Administrador {
 	
 	@Override
 	public Relatorio gerarRelatorio(String tipo) {
-		if(temPermissaoDeAcesso()) {
+		if(!this.temPermissaoDeAcesso()) {
 			return super.gerarRelatorio(tipo);
 		}
 		return null;
 	}
 	
 	private boolean temPermissaoDeAcesso() {
-		return usuario == "admin" && senha == "admin";
+		return this.usuario == "admin" && this.senha == "admin";
 	}
 
 	public String getUsuario() {
@@ -36,10 +36,8 @@ public class AdministradorProxy extends Administrador {
 		this.senha = senha;
 	}
 
-	@Override
 	public String toString() {
-		return super.toString();
+		return "AdministradorProxy [usuario=" + usuario + ", senha=" + senha + "]";
 	}
-	
 	
 }

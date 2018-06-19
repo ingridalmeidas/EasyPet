@@ -7,13 +7,9 @@ import business.control.GeradorRelatorioXML;
 public class Administrador {
 
 	private int id; // Gerado pelo sistema
-	private String login;
-	private String senha;
 
 	public Administrador() {
 		this.id = 0;
-		this.login = "";
-		this.senha = "";
 	}
 
 	public Relatorio gerarRelatorio(String tipo) {
@@ -39,26 +35,6 @@ public class Administrador {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public String toString() {
-		return "\nLogin: " + login + "\nSenha: " + senha;
 	}
 	
 }
