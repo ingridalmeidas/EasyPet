@@ -46,3 +46,7 @@ O padrão command foi utilizado para implementar os diferentes tipos de notifica
 # Iterator
 
 O padrão iterator foi aplicado para as três classes de gerência (GerenciaUsuario, GerenciaAnimal, GerenciaAdocao), de forma que uma interface Iterador foi criada e três classes de iteradores especificas para cada uma das gerências, com isso as formas de acesso a lista de entidades da gerencia foi substituida para realizar essa atividade com o uso do iterador. Com esse padrão essa forma de acesso fica mais organizada e permite que caso a forma como as entidades são armazenadas (neste caso um ArrayList) seja substituido, basta atualizar a forma como o iterador funciona para que o resto do programa continue funcionando.
+
+# Proxy
+
+O padrão proxy foi implementado sobre a classe Administrador que se encontra no package infra, esse padrão foi aplicado aqui com a criação de uma classe filha da classe administrador chamada AdministradorProxy, seu objetivo é chamar as funções da classe pai desde que os seus atributos, nesse caso o login e a senha passadas, sejam as desejadas para que o usuário tenha acesso aos comandos de administrador. O padrão proxy faz justamente isso, uma forma de garantir que os métodos chamados apenas sejam executados caso o usuário tenha permissão para utilizar esses métodos.
