@@ -33,26 +33,6 @@ public class Menu {
 		}
 	}
 	
-	public int telaLogada() {
-		System.out.println("\nEscolha uma das opcoes abaixo!\n(1)Cadastrar Animal\n(2)Ver Animais Cadastrados\n(3)Sair da Conta\nEntrada: ");
-		int entrada = s.nextInt();
-		s.nextLine();
-		
-		while(true) {
-			if(entrada == 1)
-				return 1;
-			else if(entrada == 2)
-				return 2;
-			else if(entrada == 3)
-				return 3;
-			else {
-				System.out.println("Entrada invalida, tente novamente!\nEntrada: ");
-				entrada = s.nextInt();
-				s.nextLine();
-			}
-		}
-	}
-	
 	public int cadastrarUsuario(GerenciaUsuario gerenteUsuario) {
 	    Usuario usuario = new Usuario();
 	    
@@ -263,7 +243,7 @@ public class Menu {
 		 boolean continua = true;
 		 while(continua) {
 			System.out.println("\nEscolha uma das opcoes abaixo!\n(1)Listar Usuários\n(2)Listar Animais\n(3)Gerar Relatorio XML\n(4)Gerar Relatorio PDF"
-								+ "\n(5)Remover Usuario\n(6)Remover Animal\n(7)Sair do Painel Administrativo\nEntrada: ");
+								+ "\n(5)Remover Usuario\n(6)Remover Animal\n(7)Desfazer Operacao (Lista de Usuarios)\n(8)Sair do Painel Administrativo\nEntrada: ");
 			int entrada = s.nextInt();
 			s.nextLine();
 			
@@ -293,6 +273,10 @@ public class Menu {
 					break;
 				}
 				else if(entrada == 7) {
+					gerenteUsuario.retornarEstado();
+					break;
+				}
+				else if(entrada == 8) {
 					continua = false;
 					break;
 				}

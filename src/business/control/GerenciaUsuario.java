@@ -13,6 +13,7 @@ import util.ArquivoNaoEncontrado;
 public class GerenciaUsuario {
 	
 	public static GerenciaUsuario instancia;
+	private GerenciaUsuarioCareTaker memento;
 	private ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
 	private UsuarioDAOImpl p = new UsuarioDAOImpl();
 	private ValidadorUsuario validador = new ValidadorUsuario();
@@ -34,10 +35,9 @@ public class GerenciaUsuario {
 	}
 	
 	public void adicionaUsuario(Usuario usuario){
-		
+		memento.atualizarMemento(this.listaDeUsuarios);
 		listaDeUsuarios.add(new Usuario(usuario.getLogin(), usuario.getSenha(), usuario.getNome(), usuario.getIdade(),
 							usuario.getSexo(), usuario.getCidade(), usuario.getEstado(), usuario.getCaracteristicasAnimais()));
-		
 		System.out.printf("\nO usuario '%s' foi adicionado com sucesso \n", usuario.getLogin());
 		
 	}
@@ -56,18 +56,20 @@ public class GerenciaUsuario {
 			System.out.println(u.toString());
 			
 		}
+		
 	}
 	
 	
 	public boolean removeUsuario(String login) {
-			
+		memento.atualizarMemento(this.listaDeUsuarios);
 		for (int i = 0; i < listaDeUsuarios.size(); i++) {
 				
 			Usuario u = (Usuario) listaDeUsuarios.get(i);
 				
 				
 			if (login.equals(u.getLogin())) {
-				return listaDeUsuarios.remove(u);
+				listaDeUsuarios.remove(u);
+				return true;
 			}
 		}
 			
@@ -88,6 +90,7 @@ public class GerenciaUsuario {
 		
 		try {
 			listaDeUsuarios = p.carregaLista();
+			memento = new GerenciaUsuarioCareTaker(this.listaDeUsuarios);
 		}catch(ArquivoNaoEncontrado e) {
 			throw e;
 		}	
@@ -103,5 +106,9 @@ public class GerenciaUsuario {
 		}
 		
 		return null;
+	}
+	
+	public void retornarEstado() {
+		this.listaDeUsuarios = memento.getEstadoSalvo();
 	}
 }
