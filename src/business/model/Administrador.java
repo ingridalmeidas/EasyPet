@@ -12,8 +12,8 @@ public class Administrador {
 
 	public Administrador() {
 		this.id = 0;
-		this.login = "admin";
-		this.senha = "admin";
+		this.login = "";
+		this.senha = "";
 	}
 
 	public Relatorio gerarRelatorio(String tipo) {

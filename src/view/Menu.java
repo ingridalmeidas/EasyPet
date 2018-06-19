@@ -6,7 +6,7 @@ import business.control.FacebookAdapter;
 import business.control.GerenciaAnimal;
 import business.control.GerenciaUsuario;
 import business.control.GmailAdapter;
-import business.model.Administrador;
+import business.model.AdministradorProxy;
 import business.model.Animal;
 import business.model.Usuario;
 import util.LoginInvalido;
@@ -240,7 +240,7 @@ public class Menu {
 		
 	 }
 	 
-	 public void operacoesADM(Administrador adm, GerenciaUsuario gerenteUsuario, GerenciaAnimal gerenteAnimal) {
+	 public void operacoesADM(AdministradorProxy adm, GerenciaUsuario gerenteUsuario, GerenciaAnimal gerenteAnimal) {
 		 boolean continua = true;
 		 while(continua) {
 			System.out.println("\nEscolha uma das opcoes abaixo!\n(1)Listar Usuarios\n(2)Listar Animais\n(3)Gerar Relatorio XML\n(4)Gerar Relatorio PDF"
@@ -291,18 +291,19 @@ public class Menu {
 	 }
 	  
 	 public void telaAdministrativa(GerenciaUsuario gerenteUsuario, GerenciaAnimal gerenteAnimal) {
-		Administrador adm = new Administrador();
+		AdministradorProxy adm;
 		 
 		System.out.println("\nDigite o login de administrador: ");
 		String username = s.nextLine();
 		
 		while(true) {
-			if(username.equals(adm.getLogin())){
+			if(username.equals("admin")){
 				System.out.println("\nDigite a senha de administrador: ");
 				String password = s.nextLine();
 				
 				while(true) {
-					if(password.equals(adm.getSenha())) {
+					if(password.equals("admin")) {
+						adm = new AdministradorProxy(username, password);
 						System.out.println("\nAcesso realizado com sucesso. Seja bem vindo " + adm.getLogin());
 						operacoesADM(adm, gerenteUsuario, gerenteAnimal);
 						return;
