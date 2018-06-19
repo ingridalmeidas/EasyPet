@@ -35,11 +35,11 @@ public class GerenciaAnimal {
 		
 		System.out.printf("\nTamanho da lista de animais: %d\n" , listaDeAnimais.size());
 		
-		for (int i = 0; i < listaDeAnimais.size(); i++) {
+		for (IteradorAnimal iterator = new IteradorAnimal(this.listaDeAnimais); !iterator.isDone(); iterator.next()) {
 			
-			Animal a = (Animal) listaDeAnimais.get(i);
+			Animal a = iterator.currentItem();
 			
-			a.setId(i);
+			a.setId(iterator.contador);
 			
 			System.out.printf("\nAnimal %d: ", a.getId());
 			System.out.println(a.toString());
@@ -50,9 +50,9 @@ public class GerenciaAnimal {
 	
 	public boolean removeAnimal(String nome) {
 			
-		for (int i = 0; i < listaDeAnimais.size(); i++) {
+		for (IteradorAnimal iterator = new IteradorAnimal(this.listaDeAnimais); !iterator.isDone(); iterator.next()) {
 				
-			Animal a = (Animal) listaDeAnimais.get(i);
+			Animal a = iterator.currentItem();
 				
 				
 			if (nome.equals(a.getNome())) {

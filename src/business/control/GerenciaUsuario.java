@@ -46,11 +46,11 @@ public class GerenciaUsuario {
 		
 		System.out.printf("\nTamanho da lista de usuarios: %d\n" , listaDeUsuarios.size());
 		
-		for (int i = 0; i < listaDeUsuarios.size(); i++) {
+		for (IteradorUsuario iterator = new IteradorUsuario(this.listaDeUsuarios); !iterator.isDone(); iterator.next()) {
 			
-			Usuario u = (Usuario) listaDeUsuarios.get(i);
+			Usuario u = iterator.currentItem();
 			
-			u.setId(i);
+			u.setId(iterator.contador);
 			
 			System.out.printf("\nUsuario %d: ", u.getId());
 			System.out.println(u.toString());
@@ -62,10 +62,9 @@ public class GerenciaUsuario {
 	
 	public boolean removeUsuario(String login) {
 		memento.atualizarMemento(this.listaDeUsuarios);
-		for (int i = 0; i < listaDeUsuarios.size(); i++) {
+		for (IteradorUsuario iterator = new IteradorUsuario(this.listaDeUsuarios); !iterator.isDone(); iterator.next()) {
 				
-			Usuario u = (Usuario) listaDeUsuarios.get(i);
-				
+			Usuario u = iterator.currentItem();
 				
 			if (login.equals(u.getLogin())) {
 				listaDeUsuarios.remove(u);
@@ -98,8 +97,8 @@ public class GerenciaUsuario {
 	}
 	
 	public Usuario buscaLogin(String login) {
-		for (int i = 0; i < listaDeUsuarios.size(); i++) {
-			Usuario u = (Usuario) listaDeUsuarios.get(i);					
+		for (IteradorUsuario iterator = new IteradorUsuario(this.listaDeUsuarios); !iterator.isDone(); iterator.next()) {
+			Usuario u = iterator.currentItem();					
 			if (login.equals(u.getLogin())) {
 				return u;
 			}

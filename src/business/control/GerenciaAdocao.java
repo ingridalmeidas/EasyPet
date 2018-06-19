@@ -25,11 +25,11 @@ public class GerenciaAdocao {
 		
 		System.out.printf("\nTamanho da lista de adocoes: %d\n" , listaDeAdocoes.size());
 		
-		for (int i = 0; i < listaDeAdocoes.size(); i++) {
+		for (IteradorAdocao iterator = new IteradorAdocao(this.listaDeAdocoes); !iterator.isDone(); iterator.next()) {
 			
-			Adocao a = (Adocao) listaDeAdocoes.get(i);
+			Adocao a = iterator.currentItem();
 			
-			a.setId(i);
+			a.setId(iterator.contador);
 			
 			System.out.printf("\nAdocao %d: ",a.getId());
 			System.out.println(a.toString());
