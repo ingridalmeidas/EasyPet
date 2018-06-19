@@ -2,6 +2,8 @@ package business.model;
 
 import java.io.Serializable;
 
+import business.control.NotificacaoCommand;
+
 public class Animal implements Serializable {
 
 	private int id; //Gerado pelo sistema
@@ -149,5 +151,12 @@ public class Animal implements Serializable {
 		}
 		
 		return retorno;
+	}
+	
+	//Função chamada quando demonstrarem interesse em adotar o animal
+	public void demonstraramInteresse(NotificacaoCommand tipoNotificacao) {
+		
+		tipoNotificacao.enviarNotificacao(this.IDdoador);
+		
 	}
 }

@@ -51,4 +51,6 @@ public class Adocao {
 	public void setIDAnimal(int IDanimal) {
 		this.IDanimal = IDanimal;
 	}
+	
+	
 }

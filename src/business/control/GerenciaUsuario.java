@@ -111,4 +111,5 @@ public class GerenciaUsuario {
 	public void retornarEstado() {
 		this.listaDeUsuarios = memento.getEstadoSalvo();
 	}
+
 }

@@ -2,7 +2,7 @@ package business.model;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable  {
+public class Usuario implements Serializable {
 	
 	private int id; //Gerado pelo sistema
 	private String login;
@@ -128,6 +128,5 @@ public class Usuario implements Serializable  {
 				"\nIdade: " + idade + "\nSexo: " + sexo + "\nNota: " + nota + "\nCidade: "
 				+ cidade + "\nEstado: " + estado + "\nCaracteristicas de um animal que deseja adotar: "+ caracteristicasAnimais;
 	}
-	
 	
 }

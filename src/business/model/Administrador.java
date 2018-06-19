@@ -60,5 +60,5 @@ public class Administrador {
 	public String toString() {
 		return "\nLogin: " + login + "\nSenha: " + senha;
 	}
-
+	
 }

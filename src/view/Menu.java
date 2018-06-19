@@ -145,6 +145,7 @@ public class Menu {
 				aux = gerenteUsuario.buscaLogin(username);
 			}
 		}	
+		
 	 }
 	 
 	 public void loginFacebook() {
@@ -242,7 +243,7 @@ public class Menu {
 	 public void operacoesADM(Administrador adm, GerenciaUsuario gerenteUsuario, GerenciaAnimal gerenteAnimal) {
 		 boolean continua = true;
 		 while(continua) {
-			System.out.println("\nEscolha uma das opcoes abaixo!\n(1)Listar Usuários\n(2)Listar Animais\n(3)Gerar Relatorio XML\n(4)Gerar Relatorio PDF"
+			System.out.println("\nEscolha uma das opcoes abaixo!\n(1)Listar Usuï¿½rios\n(2)Listar Animais\n(3)Gerar Relatorio XML\n(4)Gerar Relatorio PDF"
 								+ "\n(5)Remover Usuario\n(6)Remover Animal\n(7)Desfazer Operacao (Lista de Usuarios)\n(8)Sair do Painel Administrativo\nEntrada: ");
 			int entrada = s.nextInt();
 			s.nextLine();
@@ -317,6 +318,6 @@ public class Menu {
 				username = s.nextLine();
 			}
 		}	
-   }
+	 }
 	 
 }
