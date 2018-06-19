@@ -41,7 +41,7 @@ O padrão memento foi utilizado na classe GerenciaUsuario, foi criada uma classe
 
 O padrão command foi utilizado para implementar os diferentes tipos de notificações existentes na aplicação (por SMS ou Email), que são utilizados para a GerenciaAnimal enviar mensagens para o doador de um animal que alguém teve interesse em seu animal.
 
-# Padrões Extra
+# Padrões Extras
 
 # Iterator
 
